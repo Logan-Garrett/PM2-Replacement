@@ -9,7 +9,7 @@
 #include "cHandler/cHandler.h"
 
 int main(int argc, char *argv[]) {
-	printf("Welcome to Task Master.\n");
+	// printf("Welcome to Task Master.\n");
 
 	char *action = argv[1];
 	// printf("Action being performed: %s\n", action);
@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 
 	if (argv[1] != NULL && argv[2] != NULL) {
 		// Issue maybe arises in which program un-compiled. Work on maybe?
-		if ((strcmp(action, "start") != 1) && (program != NULL)) {
+		if (strcmp(action, "start") == 0 && program != NULL) {
 			char command[100];
 			pid_t pid = fork();
 			if (pid < 0) {
@@ -37,11 +37,21 @@ int main(int argc, char *argv[]) {
 		} else if(strcmp(action, "stop") == 0) {
 			printf("Self-destruct sequence initiated...\n");
 			system("sudo pkill test");
-		} 
-
+		}
+	} else if (argv[1] != NULL) { 
+		if (strcmp(action, "--version") == 0 || strcmp(action, "version") == 0) {
+			// int version;
+			printf("Version: (Read From Some File)\n");
+		} else if (strcmp(action, "dev-menu") == 0) {
+			printf("You have entered Dev Menu.\n");
+			printf("Here are some options.\n");
+			testFunction();
+		} else if (strcmp(action, "--help") == 0 || strcmp(action, "help") == 0) { 
+			printf("--help requested info down below.\n");
+		}
 	} else {
-		printf("How did you even get here?\n");
-		testFunction();
+		printf("That does not seem to be an option.\n");
+		printf("If you need help try --help\n");
 	}
 
 	return 0;
