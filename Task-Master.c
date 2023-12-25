@@ -1,32 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
+#include <unistd.h>
+#include <signal.h>
 
 int main(int argc, char *argv[]) {
 	printf("Welcome to Task Master.\n");
 
 	char *action = argv[1];
-	printf("Action being performed: %s\n", action);
+	// printf("Action being performed: %s\n", action);
 
 	char *program = argv[2];
-	printf("Program being run: %s\n", program);
-
+	// printf("Program being run: %s\n", program);
 
 	// Issue maybe arises in which program un-compiled. Work on maybe?
-	if (strcmp(argv[1], "start") != 1) {
-		int errorCheck;
+	if ((strcmp(action, "start") != 1) && (program != NULL)) {
 		char command[100];
-
-		if (strstr(argv[2], "./") != NULL) {
-			errorCheck = system(program);
+		pid_t pid = fork();
+		if (pid < 0) {
+			printf("Fork Failed.\n");
+		} else if (pid == 0) {
+			if (strstr(program, "./") != NULL) {
+				system(program);
+			} else {
+				sprintf(command, "./%s", program);
+				system(command);
+			}
 		} else {
-			sprintf(command, "./%s", program);
-			errorCheck = system(command);
+			exit(0);
 		}
-
-		if (errorCheck == 1) {
-			printf("Error Running Program\n");
-		}
+	} else if(strcmp(action, "stop") == 0) {
+		printf("Self-destruct sequence initiated...\n");
+		system("sudo pkill test");
+	} else {
+		printf("How did you veen get here?\n");
 	}
 
 	return 0;
