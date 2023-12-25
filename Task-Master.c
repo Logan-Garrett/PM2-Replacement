@@ -6,7 +6,7 @@
 #include <signal.h>
 
 // File Type Controllers
-#include "cHandler.h"
+#include "cHandler/cHandler.h"
 
 int main(int argc, char *argv[]) {
 	printf("Welcome to Task Master.\n");
