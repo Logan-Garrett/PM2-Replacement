@@ -1,5 +1,5 @@
 # PM2-Replacement
-I hate PM2. Time to improve it and create a better debugger with better features that also runs any type of process.
+I hate PM2. Time to improve it and create a better logger with better features that also runs any type of process.
 
 NON-PERMENANT
 Run in CLI: export PATH=$PATH:/path/to/your/executable/directory
