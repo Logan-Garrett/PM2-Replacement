@@ -14,3 +14,6 @@ Bash script for this.
 1. Create setup.sh
 2. Run chmod +x setup.sh
 3. Run setup.sh
+
+Beta Release
+1. View Tag
