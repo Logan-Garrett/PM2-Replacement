@@ -27,18 +27,18 @@ LIBS = -lm # Library List
 all: Task-Master
 
 # Task-Master binary compilation
-Task-Master: Task-Master.o cHandler/cHandler.o
-	$(CC) $(CFLAGS) -o TM Task-Master.o cHandler/cHandler.o
+Task-Master: Task-Master.o programHandler/programHandler.o
+	$(CC) $(CFLAGS) -o TM Task-Master.o programHandler/programHandler.o
 
 # Task-Master object file compilation
-Task-Master.o: Task-Master.c cHandler/cHandler.h
+Task-Master.o: Task-Master.c programHandler/programHandler.h
 	$(CC) $(CFLAGS) -c Task-Master.c
 
-# cHandler object file compilation
-cHandler.o: cHandler/cHandler.c cHandler/cHandler.h
-	$(CC) $(CFLAGS) -c cHandler.c
+# programHandler object file compilation
+cHandler.o: programHandler/programHandler.c programHandler/programHandler.h
+	$(CC) $(CFLAGS) -c programHandler.c
 
 # Clean rule to remove generated files
 clean:
-	rm -f TM Task-Master.o cHandler/cHandler.o
+	rm -f TM Task-Master.o programHandler/programHandler.o
 

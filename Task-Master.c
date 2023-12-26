@@ -6,7 +6,7 @@
 #include <signal.h>
 
 // File Type Controllers
-#include "cHandler/cHandler.h"
+#include "programHandler/programHandler.h"
 
 int main(int argc, char *argv[]) {
 	// printf("Welcome to Task Master.\n");
@@ -20,17 +20,11 @@ int main(int argc, char *argv[]) {
 	if (argv[1] != NULL && argv[2] != NULL) {
 		// Issue maybe arises in which program un-compiled. Work on maybe?
 		if (strcmp(action, "start") == 0 && program != NULL) {
-			char command[100];
 			pid_t pid = fork();
 			if (pid < 0) {
 				printf("Fork Failed.\n");
 			} else if (pid == 0) {
-				if (strstr(program, "./") != NULL) {
-					system(program);
-				} else {
-					sprintf(command, "./%s", program);
-					system(command);
-				}
+				startProgram(program);
 			} else {
 				exit(0);
 			}
