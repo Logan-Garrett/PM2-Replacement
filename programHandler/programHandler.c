@@ -1,4 +1,5 @@
 #include "programHandler.h"
+#include "/home/logan/Desktop/git/PM2-Replacement/dataTrail/outputLogger.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,12 +16,17 @@ void testFunction() {
 
 void startProgram(char *program) {
         char command[100];
+	int errorCheck;
 
         if (strstr(program, "./") != NULL) {
-                system(program);
+		errorCheck = system(program);
         } else {
                 sprintf(command, "./%s", program);
-                system(command);
+                errorCheck = system(command);
         }
+	
+	if (errorCheck != 0) {
+		errorLogger(command);
+	}
 }
 

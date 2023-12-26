@@ -23,22 +23,19 @@ LIBS = -lm # Library List
 #	rm -f $(OBJS) $(TARG) *~
 
 
-# Define your targets
 all: Task-Master
 
-# Task-Master binary compilation
-Task-Master: Task-Master.o programHandler/programHandler.o
-	$(CC) $(CFLAGS) -o TM Task-Master.o programHandler/programHandler.o
+Task-Master: Task-Master.o programHandler/programHandler.o dataTrail/outputLogger.o
+	$(CC) $(CFLAGS) -o TM Task-Master.o programHandler/programHandler.o dataTrail/outputLogger.o $(LIBS)
 
-# Task-Master object file compilation
-Task-Master.o: Task-Master.c programHandler/programHandler.h
-	$(CC) $(CFLAGS) -c Task-Master.c
+Task-Master.o: Task-Master.c programHandler/programHandler.h dataTrail/outputLogger.h
+	$(CC) $(CFLAGS) -c Task-Master.c -o Task-Master.o
 
-# programHandler object file compilation
-cHandler.o: programHandler/programHandler.c programHandler/programHandler.h
-	$(CC) $(CFLAGS) -c programHandler.c
+programHandler.o: programHandler/programHandler.c programHandler/programHandler.h dataTrail/outputLogger.h
+	$(CC) $(CFLAGS) -c programHandler/programHandler.c -o programHandler/programHandler.o
 
-# Clean rule to remove generated files
+outputLogger.o: dataTrail/outputLogger.c dataTrail/outputLogger.h
+	$(CC) $(CFLAGS) -c dataTrail/outputLogger.c -o dataTrail/outputLogger.o
+
 clean:
-	rm -f TM Task-Master.o programHandler/programHandler.o
-
+	rm -f TM Task-Master.o programHandler/programHandler.o dataTrail/outputLogger.o

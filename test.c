@@ -5,10 +5,17 @@
 int main() {
 	printf("Testing Program Works!\n");
 	
-	while(1) {
-		printf("I am running\n");
-		sleep(10);
-	} // Dummy loop
+	printf("I am running\n");
+	sleep(5);
+
+	printf("I am running\n");
+        sleep(5);
+
+	printf("I am running\n");
+        sleep(5);
+
+	printf("I am running\n");
+        sleep(5);
 
 	return 0;
 }
