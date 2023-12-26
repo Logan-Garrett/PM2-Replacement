@@ -31,6 +31,9 @@ int main(int argc, char *argv[]) {
 		} else if(strcmp(action, "stop") == 0) {
 			printf("Self-destruct sequence initiated...\n");
 			system("sudo pkill test");
+		} else {
+			// Run normal commands?
+			system(program);
 		}
 	} else if (argv[1] != NULL) { 
 		if (strcmp(action, "--version") == 0 || strcmp(action, "version") == 0) {
@@ -42,6 +45,8 @@ int main(int argc, char *argv[]) {
 			testFunction();
 		} else if (strcmp(action, "--help") == 0 || strcmp(action, "help") == 0) { 
 			printf("--help requested info down below.\n");
+		} else {
+			// Not certain
 		}
 	} else {
 		printf("That does not seem to be an option.\n");
