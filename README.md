@@ -17,3 +17,9 @@ Bash script for this.
 
 Beta Release
 1. View Tag
+
+TODO's
+1. Fix STOP
+2. Change Start abd Stop
+3. Make More Modular
+4. Logger
