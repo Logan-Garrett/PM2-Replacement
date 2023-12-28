@@ -12,21 +12,33 @@ void testFunction() {
         printf("Test Function\n");
 }
 
-/* Add Function to check for JS or other lang */
+void inputFormat(char *program) {
+	char command[100];
+        int errorCheck;
 
-void startProgram(char *program) {
-        char command[100];
-	int errorCheck;
-
-        if (strstr(program, "./") != NULL) {
-		errorCheck = system(program);
+	if (strstr(program, "./") != NULL) {
+                errorCheck = system(program);
         } else {
                 sprintf(command, "./%s", program);
                 errorCheck = system(command);
         }
-	
-	if (errorCheck != 0) {
-		errorLogger(command);
-	}
+        
+        if (errorCheck != 0) {
+                errorLogger(command);
+        }
 }
+
+void startProgram(char *program) {
+	pid_t pid = fork();
+        
+	if (pid < 0) {
+                printf("Fork Failed.\n");
+        } else if (pid == 0) {
+        	inputFormat(program);
+        } else {
+        	exit(0);
+        }
+}
+
+
 

@@ -5,4 +5,5 @@ void testFunction();
 
 void startProgram(char *program);
 
+void inputFormat(char *program);
 #endif
