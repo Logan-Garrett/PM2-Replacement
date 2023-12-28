@@ -14,13 +14,10 @@ int main(int argc, char *argv[]) {
 	char *action = argv[1];
 	// printf("Action being performed: %s\n", action);
 
-	char *program = argv[2];
-	// printf("Program being run: %s\n", program);
-
 	if (argv[1] != NULL) {
 		// Issue maybe arises in which program un-compiled. Work on maybe?
 		if (strcmp(action, "start") == 0) {
-			startProgram(program);
+			startProgram();
 		} else if (strcmp(action, "stop") == 0) {
 			system("sudo pkill test");
 		} else if (strcmp(action, "--version") == 0 || strcmp(action, "version") == 0) {

@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include <signal.h>
 
+#define MAX_LENGTH 256
+
 void testFunction() {
         printf("Test Function\n");
 }
@@ -28,16 +30,30 @@ void inputFormat(char *program) {
         }
 }
 
-void startProgram(char *program) {
+void startProgram() {
+	char programHolder[MAX_LENGTH];
+        char *program;
+        printf("Enter Program Name to Start: ");
+        if (fgets(programHolder, sizeof(programHolder), stdin) != NULL) {
+                        // Remove the newline character from the input
+                if (programHolder[strlen(programHolder) - 1] == '\n') {
+                        programHolder[strlen(programHolder) - 1] = '\0';
+                }
+        }
+
+        program = strdup(programHolder);
+
 	pid_t pid = fork();
         
 	if (pid < 0) {
                 printf("Fork Failed.\n");
         } else if (pid == 0) {
         	inputFormat(program);
+		
         } else {
         	exit(0);
         }
+	free(program);
 }
 
 

@@ -3,7 +3,7 @@
 
 void testFunction();
 
-void startProgram(char *program);
+void startProgram();
 
 void inputFormat(char *program);
 #endif
