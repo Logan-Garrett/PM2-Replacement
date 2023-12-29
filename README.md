@@ -20,6 +20,7 @@ Beta Release
 
 TODO's
 1. Fix STOP
-2. Change Start abd Stop
+2. Change Start and Stop -- done
 3. Make More Modular
 4. Logger
+5. add trail commands
