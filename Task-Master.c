@@ -21,7 +21,11 @@ int main(int argc, char *argv[]) {
 		} else if (strcmp(action, "stop") == 0) {
 			char *pName = programName();
 			int pid = currentProcess(pName);
-			killProcess(pid);
+			stopProgram(pid);
+		} else if (strcmp(action, "status") == 0) {
+		       	char *pName = programName();
+	       		int pid = currentProcess(pName);
+		 	statusOfProgram(pid);	
 		} else if (strcmp(action, "--version") == 0 || strcmp(action, "version") == 0) {
 			// int version;
 			printf("Version: (Read From Some File)\n");

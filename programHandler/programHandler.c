@@ -60,7 +60,7 @@ void startProgram() {
 char *programName() {
 	char programHolder[MAX_LENGTH];
         char *program;
-        printf("Enter Program Name to Stop: ");
+        printf("Enter Program Name: ");
         if (fgets(programHolder, sizeof(programHolder), stdin) != NULL) {
                 if (programHolder[strlen(programHolder) - 1] == '\n') {
                         programHolder[strlen(programHolder) - 1] = '\0';
@@ -86,8 +86,6 @@ int currentProcess(char *name) {
         	exit(-1);
     	}
 
-    	// printf("List of current PIDs and their process names:\n");
-
    	while ((entry = readdir(dir)) != NULL) {
         	if (entry->d_type == DT_DIR) {
             		int pid_val = atoi(entry->d_name);
@@ -111,7 +109,7 @@ int currentProcess(char *name) {
 	return pid;
 }
 
-void killProcess(int pid) {
+void stopProgram(int pid) {
 	int status = kill(pid, SIGKILL);
 	
 	if (status != 0) {
@@ -119,3 +117,11 @@ void killProcess(int pid) {
 		exit(-1);
 	}
 }
+
+void statusOfProgram(int pid) {
+	if (pid < 0) {
+		printf("Program not running.\n");
+	} else {
+		printf("Program Running.\n");
+	}
+};

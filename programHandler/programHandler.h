@@ -11,5 +11,7 @@ char *programName();
 
 int currentProcess(char *name);
 
-void killProcess(int pid);
+void stopProgram(int pid);
+
+void statusOfProgram(int pid);
 #endif
