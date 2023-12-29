@@ -38,4 +38,7 @@ outputLogger.o: dataTrail/outputLogger.c dataTrail/outputLogger.h
 	$(CC) $(CFLAGS) -c dataTrail/outputLogger.c -o dataTrail/outputLogger.o
 
 clean:
-	rm -f TM Task-Master.o programHandler/programHandler.o dataTrail/outputLogger.o
+	rm -f TM Task-Master.o programHandler/programHandler.o dataTrail/outputLogger.o test
+
+test:
+	$(CC) $(CFLAGS) -o test test.c
