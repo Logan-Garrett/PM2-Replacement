@@ -19,7 +19,9 @@ int main(int argc, char *argv[]) {
 		if (strcmp(action, "start") == 0) {
 			startProgram();
 		} else if (strcmp(action, "stop") == 0) {
-			system("sudo pkill test");
+			char *pName = programName();
+			int pid = currentProcess(pName);
+			killProcess(pid);
 		} else if (strcmp(action, "--version") == 0 || strcmp(action, "version") == 0) {
 			// int version;
 			printf("Version: (Read From Some File)\n");

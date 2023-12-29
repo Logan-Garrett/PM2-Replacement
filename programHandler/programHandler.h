@@ -6,4 +6,10 @@ void testFunction();
 void startProgram();
 
 void inputFormat(char *program);
+
+char *programName();
+
+int currentProcess(char *name);
+
+void killProcess(int pid);
 #endif
