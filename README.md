@@ -24,3 +24,6 @@ TODO's
 3. Make More Modular
 4. Logger
 5. add trail commands
+6. Adjust setup.sh
+
+# MY Thoughts currently.
