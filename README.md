@@ -25,5 +25,6 @@ TODO's
 4. Logger
 5. add trail commands
 6. Adjust setup.sh
+7. Make Unique 
 
 # MY Thoughts currently.
