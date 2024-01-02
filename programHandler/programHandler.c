@@ -1,5 +1,5 @@
 #include "programHandler.h"
-#include "/home/logan/Desktop/git/PM2-Replacement/dataTrail/outputLogger.h"
+#include "outputLogger.h"
 
 #include <stdio.h>
 #include <stdlib.h>

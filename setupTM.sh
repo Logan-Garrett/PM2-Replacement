@@ -1,7 +1,10 @@
 #!/bin/bash
 
+setup_file_path=$(readlink -f "$0")
+directory_name=$(dirname "$setup_file_path")
+
 task_master_comment="# Path to Task Master installation."
-task_master_config="export PATH=$PATH:/home/logan/Desktop/git/PM2-Replacement"
+task_master_config="export PATH=$PATH:$directory_name"
 
 # Check if the line already exists in .zshrc
 if ! grep -qF "$task_master_config" ~/.zshrc; then
@@ -14,3 +17,4 @@ else
     echo "No changes needed. Line already exists in .zshrc."
 fi
 
+source ~/.zshrc
