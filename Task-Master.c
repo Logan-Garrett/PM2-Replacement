@@ -7,6 +7,7 @@
 
 // File Type Controllers
 #include "programHandler/programHandler.h"
+#include "programHandler/helperFunctions.h"
 
 int main(int argc, char *argv[]) {
 	// printf("Welcome to Task Master.\n");
@@ -25,16 +26,18 @@ int main(int argc, char *argv[]) {
 		} else if (strcmp(action, "status") == 0) {
 		       	char *pName = programName();
 	       		int pid = currentProcess(pName);
-		 	statusOfProgram(pid);	
+		 	statusOfProgram(pid);
 		} else if (strcmp(action, "--version") == 0 || strcmp(action, "version") == 0) {
-			// int version;
-			printf("Version: (Read From Some File)\n");
+			// change from hardcoded to from security or something.
+			char *version = "v0.0.0.0";
+			printf("Version: %s\n", version);
 		} else if (strcmp(action, "dev-menu") == 0) {
 			printf("You have entered Dev Menu.\n");
 			printf("Here are some options.\n");
 			testFunction();
 		} else if (strcmp(action, "--help") == 0 || strcmp(action, "help") == 0) { 
 			printf("--help requested info down below.\n");
+			helpList();
 		} else {
 			// Not certain
 			system(action);
