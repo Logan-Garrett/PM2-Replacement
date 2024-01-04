@@ -28,7 +28,12 @@ void inputFormat(char *program) {
         }
         
         if (errorCheck != 0) {
-                errorLogger(command);
+		if (strstr(program, "./") != NULL) {
+			errorLogger(program);
+		} else {
+			sprintf(command, "./%s", program);
+                	errorLogger(command);
+		}
         }
 }
 

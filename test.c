@@ -3,6 +3,7 @@
 #include <unistd.h>
 
 int main() {
+	printf("Test Running.\n");
 	while(1) {
 		// printf("Testing Program Works!\n");
 		sleep(5);

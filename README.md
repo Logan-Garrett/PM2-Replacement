@@ -13,12 +13,9 @@ Beta Release
 1. View Tag
 
 TODO's
-1. Fix STOP -- done
-2. Change Start and Stop -- done
-3. Make More Modular
-4. Logger
-5. add trail commands
-6. Adjust setup.sh -- done
-7. Make Unique 
+- Make More Modular
+- Logger
+- add trail commands
+- Add Unique Tools
 
 # MY Thoughts currently.
