@@ -19,3 +19,4 @@ TODO's
 - Add Unique Tools
 
 # MY Thoughts currently.
+How do i make it unique?
